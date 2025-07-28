@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bonjour</title>
+  <style>
+    body {
+      background-color: #64CDE8;
+      font-family: Courier, monospace;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #222;
+      font-size: 1.8em;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: block;
+      width: 90%;
+      max-width: 300px;
+      font-size: 1.1em;
+      font-family: Courier, monospace;
+      padding: 15px;
+      margin: 10px auto;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      background-color: #eaeaea;
+    }
+
+    .btn-blue {
+      color: #0C19CF;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bonjour</h1>
+
+  <button class="btn" id="btn-fuze">Ouvre Youtube Fuze</button>
+  <button class="btn" id="btn-ksp">KSP FR</button>
+  <button class="btn" id="btn-home">Ouvrir Youtube Accueil</button>
+  <button class="btn btn-blue" id="btn-theo">Ouvrir Youtube KSP1080p</button>
+
+  <script>
+    document.getElementById("btn-fuze").onclick = function () {
+      window.open("https://www.youtube.com/@FuzeIII", "_blank");
+    };
+
+    document.getElementById("btn-ksp").onclick = function () {
+      window.open("https://www.youtube.com/results?search_query=ksp+fr", "_blank");
+    };
+
+    document.getElementById("btn-home").onclick = function () {
+      window.open("https://www.youtube.com/", "_blank");
+    };
+
+    document.getElementById("btn-theo").onclick = function () {
+      window.open("https://www.youtube.com/@theo_ksp5546", "_blank");
+    };
+  </script>
+
+</body>
+</html>
