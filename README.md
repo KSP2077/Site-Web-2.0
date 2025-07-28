@@ -15,12 +15,10 @@
       align-items: center;
       min-height: 100vh;
     }
-
     h1 {
       margin: 30px 0 20px;
       font-size: 2.5em;
     }
-
     .button-container {
       display: flex;
       flex-wrap: wrap;
@@ -28,7 +26,6 @@
       gap: 15px;
       margin-bottom: 30px;
     }
-
     button {
       background-color: #ffffff;
       color: #333;
@@ -39,12 +36,10 @@
       cursor: pointer;
       transition: transform 0.2s, background-color 0.3s;
     }
-
     button:hover {
       background-color: #dff4ff;
       transform: scale(1.05);
     }
-
     #image-container {
       display: none;
       margin-bottom: 30px;
@@ -52,34 +47,28 @@
       width: 90%;
       animation: fadeIn 0.6s ease-out forwards;
     }
-
     #image-container img {
       width: 100%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-
     #footer {
       margin-top: auto;
       padding: 20px;
     }
-
     #footer button {
       color: blue;
       background-color: #fff;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @media (max-width: 600px) {
       h1 {
         font-size: 1.8em;
       }
-
       button {
         font-size: 14px;
         padding: 10px 15px;
