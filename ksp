@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Site Web 2.0 - Image PNG</title>
+  <title>Site Web 2.0 - Image GitHub</title>
   <style>
     body {
       margin: 0;
@@ -101,7 +101,7 @@
   </div>
 
   <div id="image-container">
-    <img src="image_points.png" alt="Points PNG">
+    <img src="https://github.com/user-attachments/assets/9d335bf0-79e5-462a-99c3-6334d2edebcb" alt="Image GitHub">
   </div>
 
   <div id="footer">
@@ -124,7 +124,6 @@
 
 </body>
 </html>
-
 
 
 
