@@ -1,72 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>site-wed-2.0</title>
-  <style>
-    body {
-      background-color: #64CDE8;
-      font-family: Courier, monospace;
-      text-align: center;
-      padding: 50px 20px;
-      margin: 0;
-    }
-    h1 {
-      font-size: 32px;
-      margin-bottom: 30px;
-      color: #333;
-    }
-    .btn {
-      display: block;
-      width: 90%;
-      max-width: 400px;
-      margin: 10px auto;
-      padding: 15px;
-      font-size: 20px;
-      background-color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .btn:hover {
-      background-color: #e0e0e0;
-    }
-    .bottom {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 400px;
-    }
-    .theo-btn {
-      color: #0C19CF;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Site Web 2.0</title>
+    <style>
+        body {
+            background-color: #64CDE8;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 20px;
+        }
+        button {
+            font-size: 20px;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
+        #imageContainer img {
+            max-width: 1000px;
+            max-height: 600px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-
-  <h1>Bienvenue</h1>
-
-  <button class="btn" onclick="openLink('https://www.youtube.com/@FuzeIII')">Chaîne Fuze</button>
-  <button class="btn" onclick="openLink('https://www.youtube.com/results?search_query=ksp+fr')">Rechercher KSP FR</button>
-  <button class="btn" onclick="openLink('https://www.youtube.com/')">Accueil YouTube</button>
-  <button class="btn" onclick="openLink('https://meteofrance.com/')">Météo France</button>
-
-  <div class="bottom">
-    <button class="btn theo-btn" onclick="openLink('https://www.youtube.com/@theo_ksp5546')">
-      Chaîne Theo KSP
-    </button>
-  </div>
-
-  <script>
-    function openLink(url) {
-      window.open(url, '_blank');
-    }
-  </script>
+    <h1>Site Web 2.0</h1>
+    <button onclick="openLink('https://www.youtube.com/@FuzeIII')">Ouvrir YouTube Fuze</button>
+    <button onclick="openLink('https://www.youtube.com/results?search_query=ksp+fr')">KSP FR</button>
+    <button onclick="openLink('https://www.youtube.com/')">Accueil YouTube</button>
+    <button onclick="openLink('https://meteofrance.com/')">Météo France</button>
+    <button onclick="openLink('https://www.youtube.com/@theo_ksp5546')">YouTube Theo KSP</button>
+    <br><br>
+    <button onclick="showImage()">Afficher l'image</button>
+    <button onclick="hideImage()">Cacher l'image</button>
+    <div id="imageContainer"></div>
+    <script>
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+        function showImage() {
+            const container = document.getElementById("imageContainer");
+            if (!document.getElementById("mainImage")) {
+                const img = document.createElement("img");
+                img.src = "101_1296_edited.jpg"; // Assure-toi que l'image est dans le même dossier
+                img.id = "mainImage";
+                container.appendChild(img);
+            }
+        }
+        function hideImage() {
+            const img = document.getElementById("mainImage");
+            if (img) {
+                img.remove();
+            }
+        }
+    </script>
 
 </body>
 </html>
