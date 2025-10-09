@@ -1,115 +1,147 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Site Web 2.0 - Image GitHub</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site-Web 2.0</title>
   <style>
+    /* === STYLE GLOBAL === */
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
       background-color: #64CDE8;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+      font-family: "Courier New", Courier, monospace;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
     }
+
     h1 {
-      margin: 30px 0 20px;
-      font-size: 2.5em;
+      color: white;
+      text-shadow: 1px 1px 3px #000;
+      margin-bottom: 20px;
     }
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-    button {
-      background-color: #ffffff;
-      color: #333;
+
+    /* === BOUTONS === */
+    .button {
+      background-color: white;
       border: none;
-      padding: 12px 20px;
+      padding: 10px 20px;
+      margin: 8px;
       font-size: 16px;
-      border-radius: 8px;
       cursor: pointer;
-      transition: transform 0.2s, background-color 0.3s;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
     }
-    button:hover {
-      background-color: #dff4ff;
+
+    .button:hover {
+      background-color: #d6f2ff;
       transform: scale(1.05);
     }
+
+    /* Couleurs personnalisées */
+    .discord {
+      background-color: #5865F2;
+      color: white;
+    }
+
+    .discord:hover {
+      background-color: #4752C4;
+    }
+
+    .steam {
+      background-color: #171A21;
+      color: white;
+    }
+
+    .steam:hover {
+      background-color: #2A475E;
+    }
+
+    /* === CONTENEUR D'IMAGES === */
     #image-container {
-      display: none;
-      margin-bottom: 30px;
-      max-width: 1000px;
-      width: 90%;
-      animation: fadeIn 0.6s ease-out forwards;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
     }
-    #image-container img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+    img {
+      max-width: 480px;
+      max-height: 360px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
     }
-    #footer {
-      margin-top: auto;
-      padding: 20px;
+
+    img:hover {
+      transform: scale(1.05);
     }
-    #footer button {
-      color: blue;
-      background-color: #fff;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8em;
-      }
-      button {
-        font-size: 14px;
-        padding: 10px 15px;
-      }
+
+    footer {
+      margin-top: 50px;
+      color: white;
+      font-size: 14px;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
 
-  <h1>Bienvenue sur site-wed-2.0</h1>
+  <h1>🌐 Site-Web 2.0</h1>
 
-  <div class="button-container">
-    <button onclick="openLink('https://www.youtube.com/@FuzeIII')">YouTube Fuze</button>
-    <button onclick="openLink('https://www.youtube.com/results?search_query=ksp+fr')">KSP FR</button>
-    <button onclick="openLink('https://www.youtube.com/')">Accueil YouTube</button>
-    <button onclick="openLink('https://meteofrance.com/')">Météo France</button>
-    <button onclick="showImage()">Afficher l'image</button>
-    <button onclick="hideImage()">Cacher l'image</button>
+  <!-- === BOUTONS DE LIENS === -->
+  <div>
+    <button class="button" onclick="openLink('https://www.youtube.com/@FuzeIII')">YouTube Fuze</button>
+    <button class="button" onclick="openLink('https://www.youtube.com/@theo_ksp5546')">Theo KSP</button>
+    <button class="button" onclick="openLink('https://www.youtube.com/results?search_query=ksp+fr')">KSP FR</button>
+    <button class="button" onclick="openLink('https://www.youtube.com/')">Accueil YouTube</button>
+    <button class="button" onclick="openLink('https://meteofrance.com/')">Météo France</button>
+    <button class="button discord" onclick="openLink('https://discord.com/')">Discord</button>
+    <button class="button steam" onclick="openLink('https://steamcommunity.com/')">Steam</button>
   </div>
 
-  <div id="image-container">
-    <img src="https://github.com/user-attachments/assets/9d335bf0-79e5-462a-99c3-6334d2edebcb" alt="Image GitHub">
+  <!-- === BOUTONS POUR LES IMAGES === -->
+  <div style="margin-top: 20px;">
+    <button class="button" onclick="afficherImages()">Afficher / Changer les images</button>
+    <button class="button" onclick="cacherImages()">Cacher les images</button>
   </div>
 
-  <div id="footer">
-    <button onclick="openLink('https://www.youtube.com/@theo_ksp5546')">YouTube Theo KSP</button>
-  </div>
+  <!-- === CONTENEUR D'IMAGES === -->
+  <div id="image-container"></div>
+
+  <footer>© 2025 - Version HTML du Site-Web 2.0</footer>
 
   <script>
+    // === Fonction pour ouvrir les liens ===
     function openLink(url) {
       window.open(url, '_blank');
     }
 
-    function showImage() {
-      document.getElementById("image-container").style.display = "block";
+    // === Gestion des images ===
+    const images1 = ["101_1295_edited.jpg", "101_1296_edited.jpg"];
+    const images2 = ["101_1349_edited.jpg", "101_1350_edited.jpg"];
+    let index = 0;
+
+    function afficherImages() {
+      const container = document.getElementById("image-container");
+      container.innerHTML = "";
+
+      const img1 = document.createElement("img");
+      const img2 = document.createElement("img");
+
+      img1.src = images1[index % images1.length];
+      img2.src = images2[index % images2.length];
+
+      container.appendChild(img1);
+      container.appendChild(img2);
+
+      index++;
     }
 
-    function hideImage() {
-      document.getElementById("image-container").style.display = "none";
+    function cacherImages() {
+      document.getElementById("image-container").innerHTML = "";
     }
   </script>
-
 </body>
 </html>
