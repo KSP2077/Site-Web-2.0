@@ -15,7 +15,15 @@
         }
 
         h1 {
+            margin-bottom: 5px;
+        }
+
+        .bonne-annee {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px #00000055;
         }
 
         .buttons {
@@ -55,6 +63,7 @@
 <body>
 
 <h1>Site Web 2.0</h1>
+<div class="bonne-annee">🎆 Bonne année 2026 🎆</div>
 
 <!-- ===== Boutons Web ===== -->
 <div class="buttons">
@@ -109,4 +118,5 @@
 
 </body>
 </html>
+
 
