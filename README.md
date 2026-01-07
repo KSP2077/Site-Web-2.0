@@ -1,147 +1,112 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site-Web 2.0</title>
-  <style>
-    /* === STYLE GLOBAL === */
-    body {
-      background-color: #64CDE8;
-      font-family: "Courier New", Courier, monospace;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <title>Site Web 2.0</title>
 
-    h1 {
-      color: white;
-      text-shadow: 1px 1px 3px #000;
-      margin-bottom: 20px;
-    }
+    <!-- ===== CSS ===== -->
+    <style>
+        body {
+            background-color: #64CDE8;
+            font-family: Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
 
-    /* === BOUTONS === */
-    .button {
-      background-color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background-color 0.3s, transform 0.2s;
-    }
+        h1 {
+            margin-bottom: 20px;
+        }
 
-    .button:hover {
-      background-color: #d6f2ff;
-      transform: scale(1.05);
-    }
+        .buttons {
+            margin: 15px 0;
+        }
 
-    /* Couleurs personnalisées */
-    .discord {
-      background-color: #5865F2;
-      color: white;
-    }
+        button {
+            font-size: 16px;
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-    .discord:hover {
-      background-color: #4752C4;
-    }
+        button:hover {
+            background-color: #e0e0e0;
+        }
 
-    .steam {
-      background-color: #171A21;
-      color: white;
-    }
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-    .steam:hover {
-      background-color: #2A475E;
-    }
-
-    /* === CONTENEUR D'IMAGES === */
-    #image-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    img {
-      max-width: 480px;
-      max-height: 360px;
-      border-radius: 12px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    img:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      margin-top: 50px;
-      color: white;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-  </style>
+        .images img {
+            max-width: 500px;
+            max-height: 500px;
+            display: none;
+            border-radius: 8px;
+        }
+    </style>
 </head>
+
 <body>
 
-  <h1>🌐 Site-Web 2.0</h1>
+<h1>Site Web 2.0</h1>
 
-  <!-- === BOUTONS DE LIENS === -->
-  <div>
-    <button class="button" onclick="openLink('https://www.youtube.com/@FuzeIII')">YouTube Fuze</button>
-    <button class="button" onclick="openLink('https://www.youtube.com/@theo_ksp5546')">Theo KSP</button>
-    <button class="button" onclick="openLink('https://www.youtube.com/results?search_query=ksp+fr')">KSP FR</button>
-    <button class="button" onclick="openLink('https://www.youtube.com/')">Accueil YouTube</button>
-    <button class="button" onclick="openLink('https://meteofrance.com/')">Météo France</button>
-    <button class="button discord" onclick="openLink('https://discord.com/')">Discord</button>
-    <button class="button steam" onclick="openLink('https://steamcommunity.com/')">Steam</button>
-  </div>
+<!-- ===== Boutons Web ===== -->
+<div class="buttons">
+    <button onclick="openUrl('https://www.youtube.com/@FuzeIII')">Fuze III</button>
+    <button onclick="openUrl('https://www.youtube.com/results?search_query=ksp+fr')">KSP FR</button>
+    <button onclick="openUrl('https://www.youtube.com/')">YouTube</button>
+    <button onclick="openUrl('https://meteofrance.com/')">Météo France</button>
+    <button onclick="openUrl('https://discord.com/')">Discord</button>
+    <button onclick="openUrl('https://steamcommunity.com/')">Steam</button>
+</div>
 
-  <!-- === BOUTONS POUR LES IMAGES === -->
-  <div style="margin-top: 20px;">
-    <button class="button" onclick="afficherImages()">Afficher / Changer les images</button>
-    <button class="button" onclick="cacherImages()">Cacher les images</button>
-  </div>
+<!-- ===== Boutons Images ===== -->
+<div class="buttons">
+    <button onclick="changerImages()">Changer les images</button>
+    <button onclick="cacherImages()">Cacher les images</button>
+</div>
 
-  <!-- === CONTENEUR D'IMAGES === -->
-  <div id="image-container"></div>
+<!-- ===== Zone Images ===== -->
+<div class="images">
+    <img id="img1">
+    <img id="img2">
+</div>
 
-  <footer>© 2025 - Version HTML du Site-Web 2.0</footer>
-
-  <script>
-    // === Fonction pour ouvrir les liens ===
-    function openLink(url) {
-      window.open(url, '_blank');
-    }
-
-    // === Gestion des images ===
+<!-- ===== JavaScript ===== -->
+<script>
     const images1 = ["101_1295_edited.jpg", "101_1296_edited.jpg"];
     const images2 = ["101_1349_edited.jpg", "101_1350_edited.jpg"];
     let index = 0;
 
-    function afficherImages() {
-      const container = document.getElementById("image-container");
-      container.innerHTML = "";
+    function openUrl(url) {
+        window.open(url, "_blank");
+    }
 
-      const img1 = document.createElement("img");
-      const img2 = document.createElement("img");
+    function changerImages() {
+        const img1 = document.getElementById("img1");
+        const img2 = document.getElementById("img2");
 
-      img1.src = images1[index % images1.length];
-      img2.src = images2[index % images2.length];
+        img1.src = images1[index % images1.length];
+        img2.src = images2[index % images2.length];
 
-      container.appendChild(img1);
-      container.appendChild(img2);
+        img1.style.display = "block";
+        img2.style.display = "block";
 
-      index++;
+        index++;
     }
 
     function cacherImages() {
-      document.getElementById("image-container").innerHTML = "";
+        document.getElementById("img1").style.display = "none";
+        document.getElementById("img2").style.display = "none";
     }
-  </script>
+</script>
+
 </body>
 </html>
+
