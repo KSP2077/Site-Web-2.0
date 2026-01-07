@@ -2,7 +2,9 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Site Web 2.0 – Bonne année 2026</title>
+
+<!-- Titre onglet navigateur (vide ou simple) -->
+<title>Bonne année 2026</title>
 
 <style>
 body {
@@ -48,25 +50,23 @@ img {
 
 <body>
 
+<!-- SEUL TITRE -->
 <h1>🎆 Bonne année 2026 🎆</h1>
 
-<!-- Boutons liens -->
 <div>
     <button onclick="openUrl('https://www.youtube.com/@FuzeIII')">YouTube Fuze</button>
     <button onclick="openUrl('https://www.youtube.com/results?search_query=ksp+fr')">KSP FR</button>
-    <button onclick="openUrl('https://www.youtube.com')">Accueil YouTube</button>
+    <button onclick="openUrl('https://www.youtube.com')">YouTube</button>
     <button onclick="openUrl('https://meteofrance.com')">Météo France</button>
     <button onclick="openUrl('https://discord.com')">Discord</button>
     <button onclick="openUrl('https://steamcommunity.com')">Steam</button>
 </div>
 
-<!-- Boutons image -->
 <div style="margin-top:15px;">
     <button onclick="showImage()">Afficher l'image</button>
     <button onclick="hideImage()">Cacher l'image</button>
 </div>
 
-<!-- Image -->
 <div id="images">
     <img id="mainImage" src="101_1296_edited.jpg">
 </div>
@@ -87,6 +87,3 @@ function hideImage() {
 
 </body>
 </html>
-
-
-
